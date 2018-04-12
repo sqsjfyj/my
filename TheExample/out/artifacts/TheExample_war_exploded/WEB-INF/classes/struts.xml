@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.objectFactory" value="spring" />
+	
+	<!--<constant name="struts.multipart.maxSize" value="2097152" />
+	
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	
+	<constant name="struts.convention.result.path" value="/WEB-INF/templates" />
+	
+	<constant name="struts.convention.package.location" value="action" />
+	
+	<constant name="struts.serve.static.browserCache" value="false" />
+	
+	<constant name="struts.configuration.xml.reload" value="true" />-->
+	
+	<!--<package name="default" namespace="/" extends="struts-default">
+		
+	</package>-->
+
+	<package name="default" namespace="/user" extends="struts-default">
+		<action name="register" class="userAction" method="userRegister">
+			<result name="success">/user/register_success.jsp</result>
+			<result name="error">/user/register.jsp</result>
+			<result name="input">/user/register.jsp</result>
+		</action>
+		<action name="login" class="userAction" method="userLogin">
+			<result name="success">/user/login_success.jsp</result>
+			<result name="error">/user/login.jsp</result>
+			<result name="input">/user/login.jsp</result>
+		</action>
+	</package>
+
+</struts>
