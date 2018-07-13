@@ -6,13 +6,14 @@ import org.springframework.stereotype.Service;
 
 import com.edu.dao.user.UserDao;
 import com.edu.entity.user.User;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-@Service("userService")
+//@Service("userService")
 @Transactional
 public class UserService implements IUserService {
 	
-	@Resource
+	//@Resource
 	private UserDao userDao;
 	
 	
@@ -25,12 +26,14 @@ public class UserService implements IUserService {
 		this.userDao = userDao;
 	}
 
+	//@Transactional(propagation = Propagation.SUPPORTS)
 	@Override
 	public User findBynameAndPassword(User user) {
 		// TODO Auto-generated method stub
 		return userDao.findBynameAndPassword(user);
 	}
 
+	//@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public int insert(User user) {
 		// TODO Auto-generated method stub

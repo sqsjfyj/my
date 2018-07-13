@@ -25,5 +25,5 @@ public interface IBaseDao<T> {
 	
 	int getCount(String hql, String[] pras);
 	
-	List<T> findByFields(String hql, String fields[], String condition);
+	//List<T> findByFields(String hql, String fields[], String condition);
 }

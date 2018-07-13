@@ -11,7 +11,7 @@ import org.hibernate.query.Query;
 
 public class DaoHibernate<T> implements IBaseDao<T> {
 
-	@Resource
+	//@Resource
 	private SessionFactory sessionFactory;
 	
 	
@@ -141,23 +141,23 @@ public class DaoHibernate<T> implements IBaseDao<T> {
 		return resu;
 	}
 
-	@Override
-	public List<T> findByFields(String hql, String[] fields, String condition) {
-		// TODO Auto-generated method stub
-		String findhql = hql;
-		if (fields != null && condition != null && fields.length > 0 && !condition.equals("")) {
-			findhql = findhql + "where 1=1 and (";
-			for (int i = 0; i < fields.length - 1; i++) {
-				findhql += fields[i] + "like '%" + condition + "%' or";
-			}
-			findhql += fields[fields.length - 1] + " like '%" + condition + "%')";
-		}
-		Session session = sessionFactory.getCurrentSession();
-		@SuppressWarnings("unchecked")
-		Query<T> query = session.createQuery(findhql);
-		List<T> list = query.list();
-		return list;
-	}
+//	@Override
+//	public List<T> findByFields(String hql, String[] fields, String condition) {
+//		// TODO Auto-generated method stub
+//		String findhql = hql;
+//		if (fields != null && condition != null && fields.length > 0 && !condition.equals("")) {
+//			findhql = findhql + "where 1=1 and (";
+//			for (int i = 0; i < fields.length - 1; i++) {
+//				findhql += fields[i] + "like '%" + condition + "%' or";
+//			}
+//			findhql += fields[fields.length - 1] + " like '%" + condition + "%')";
+//		}
+//		Session session = sessionFactory.getCurrentSession();
+//		@SuppressWarnings("unchecked")
+//		Query<T> query = session.createQuery(findhql);
+//		List<T> list = query.list();
+//		return list;
+//	}
 	
 
 }

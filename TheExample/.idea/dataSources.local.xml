@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="card@localhost" uuid="06cfd896-83ac-4f74-b827-3c211db62161">
-      <database-info product="MySQL" version="5.7.17" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.44 ( Revision: b3cda4f864902ffdde495b9df93937c3e20009be )">
+    <data-source name="card@localhost" uuid="b175f9e8-82c1-45f7-8ff8-01a16c1374d0">
+      <database-info product="MySQL" version="5.1.73-community" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
@@ -10,8 +10,6 @@
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
       <introspection-schemas>*:card</introspection-schemas>
-      <resolve-scope>information_schema:</resolve-scope>
-      <unqualified-resolve-schemas>information_schema:</unqualified-resolve-schemas>
     </data-source>
   </component>
 </project>

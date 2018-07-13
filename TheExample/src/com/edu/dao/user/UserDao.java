@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import com.edu.dao.DaoHibernate;
 import com.edu.entity.user.User;
 
-@Repository("userDao")
+//@Repository("userDao")
 public class UserDao extends DaoHibernate<User> {
 	
 	public User findBynameAndPassword(User user){

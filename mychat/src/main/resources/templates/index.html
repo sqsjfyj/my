@@ -19,22 +19,44 @@
             text-align: center;
         }
         .myrow{
-            margin-top: 100px;
             border-top: 1px solid #31fff0;
         }
+        .header-panel{
+            height: 100px;
+        }
+        .col-3{
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .col-9{
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
     </style>
+    <script>
+        $(function () {
+            $(".nav-link").click(function () {
+                $(".nav-link[class*=active]").removeClass("active");
+                $(this).addClass("active");
+            });
+        });
+    </script>
 
 </head>
 <body>
 <div class="container">
+    <div class="header-panel">
+
+    </div>
     <div class="row myrow">
         <div class="col-3 mynav">
-                <ul class="nav nav-pills flex-column">
-                    <li class="nav-item"><a class="nav-link" href="#">个人信息</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">科研信息</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">分类查询</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">信息统计</a></li>
-                </ul>
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item"><a class="nav-link active" href="#">个人信息</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">流水查询</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">添加记录</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">收支记录</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">分类统计</a></li>
+            </ul>
         </div>
         <div class="col-9"></div>
     </div>

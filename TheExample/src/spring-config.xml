@@ -15,7 +15,7 @@
 
 
 
-    <context:component-scan base-package="com.edu.*"></context:component-scan>
+    <!--<context:component-scan base-package="com.edu.*"></context:component-scan>-->
 
     <!--<aop:aspectj-autoproxy></aop:aspectj-autoproxy>-->
 
@@ -54,23 +54,10 @@
 
     <tx:annotation-driven transaction-manager="transactionManager" />
 
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+   <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
             <tx:method name="insert*" propagation="REQUIRED" />
-            <tx:method name="update*" propagation="REQUIRED" />
-            <!--<tx:method name="edit*" propagation="REQUIRED" />
-            <tx:method name="save*" propagation="REQUIRED" />
-            <tx:method name="add*" propagation="REQUIRED" />
-            <tx:method name="set*" propagation="REQUIRED" />
-            <tx:method name="remove*" propagation="REQUIRED" />-->
-            <tx:method name="delete*" propagation="REQUIRED" />
-            <tx:method name="retrieve*" propagation="REQUIRED" />
-            <tx:method name="revert*" propagation="REQUIRED" />
-            <!--<tx:method name="change*" propagation="REQUIRED" />
-            <tx:method name="get*" propagation="REQUIRED" read-only="true" />-->
-            <tx:method name="find*" propagation="REQUIRED" read-only="true" />
-            <!--<tx:method name="load*" propagation="REQUIRED" read-only="true" />-->
-            <tx:method name="*" propagation="REQUIRED" read-only="true" />
+            <tx:method name="find*" propagation="SUPPORTS" read-only="true" />
         </tx:attributes>
     </tx:advice>
 
@@ -78,17 +65,16 @@
         <aop:pointcut id="serviceOperation" expression="execution(* com.edu.service.*.*(..))" />
         <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation" />
     </aop:config>
-
-    <!--<bean id="userDao" class="com.edu.dao.user.UserDao">-->
-        <!--<property name="sessionFactory" ref="sessionFactory"></property>-->
-    <!--</bean>-->
+    <bean id="userDao" class="com.edu.dao.user.UserDao">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
     <!---->
-    <!--<bean id="userService" class="com.edu.service.user.UserService">-->
-        <!--<property name="userDao" ref="userDao"></property>-->
-    <!--</bean>-->
+    <bean id="userService" class="com.edu.service.user.UserService">
+        <property name="userDao" ref="userDao"></property>
+    </bean>
 
-    <!--<bean id="userAction" class="com.edu.action.user.UserAction">-->
-        <!--<property name="userService" ref="userService"></property>-->
-    <!--</bean>-->
+    <bean id="userAction" class="com.edu.action.user.UserAction">
+        <property name="iUserService" ref="userService"></property>
+    </bean>
 
 </beans>

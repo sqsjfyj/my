@@ -10,8 +10,8 @@ import com.edu.entity.user.User;
 import com.edu.service.user.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 
-@Controller("userAction")
-@Scope("prototype")
+//@Controller("userAction")
+//@Scope("prototype")
 public class UserAction extends ActionSupport {
 
 	/**
@@ -22,7 +22,7 @@ public class UserAction extends ActionSupport {
 	private User user;
 	private String re_password;
 	private String msg;
-	@Resource
+	//@Resource
 	private IUserService iUserService;
 	public User getUser() {
 		return user;
