@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.qwj.mapper.HusbandMapper">
+  <resultMap id="husbandAndWife" type="org.qwj.entity.Husband">
+    <id column="hid" jdbcType="INTEGER" property="hid" />
+    <result column="hname" jdbcType="VARCHAR" property="hname" />
+
+    <!--<association property="wife" column="hid" select="org.qwj.mapper.WifeMapper.selectWifeByHusbandId"/>-->
+    <association property="wife" javaType="Wife" column="hid">
+      <id column="wid" property="wid"/>
+      <result column="wname" property="wname"/>
+    </association>
+  </resultMap>
+
+  <!-- resultType 返回类型 从这条语句中返回的期望类型的类的完全限定名或别名-->
+  <select id="selectHusbandById" resultType="org.qwj.entity.Husband">
+    select * from husband where hid=#{hid}
+  </select>
+
+  <!-- resultMap  命名引用外部的 resultMap。返回的是一个集合。-->
+  <select id="selectHusbandAndWife" resultMap="husbandAndWife">
+    <!--select * from husband where hid=#{hid}-->
+    select h.hid,h.hname,w.wid,w.wname from husband h left join wife w on h.hid=w.hus_id
+  </select>
+
+
+
+</mapper>

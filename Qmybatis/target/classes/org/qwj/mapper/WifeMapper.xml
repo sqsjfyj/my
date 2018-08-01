@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.qwj.mapper.WifeMapper">
+
+  <resultMap id="wifeselect" type="org.qwj.entity.Wife">
+    <id column="wid" jdbcType="INTEGER" property="wid"></id>
+    <result column="wname" jdbcType="VARCHAR" property="wname" />
+    <result column="hus_id" jdbcType="INTEGER" property="hus_id" />
+  </resultMap>
+
+  <select id="selectWifeByHusbandId" resultMap="wifeselect" parameterType="int">
+    select * from wife where hus_id=#{hus_id}
+  </select>
+</mapper>
