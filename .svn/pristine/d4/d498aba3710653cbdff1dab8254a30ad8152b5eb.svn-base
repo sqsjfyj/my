@@ -1,0 +1,27 @@
+#防止乱码 useUnicode=true&characterEncoding=utf8
+spring.datasource.url = jdbc:mysql://localhost:3306/mychat?useUnicode=true&characterEncoding=utf8
+spring.datasource.username = root
+spring.datasource.password =  123
+spring.datasource.driver-class-name = com.mysql.jdbc.Driver
+
+spring.http.encoding.force=true
+spring.http.encoding.charset=UTF-8
+spring.http.encoding.enabled=true
+server.tomcat.uri-encoding=UTF-8
+server.servlet.context-path=/mychat_war
+spring.freemarker.charset=utf-8
+spring.messages.encoding=UTF-8
+
+#thymeleaf start
+spring.thymeleaf.mode=HTML5
+spring.thymeleaf.encoding=UTF-8
+#开发时关闭缓存,不然没法看到实时页面
+spring.thymeleaf.cache=false
+#thymeleaf end
+
+#session存储类型
+#spring.session.store-type=redis
+##设置session超时时间
+#server.servlet.session.timeout=3600s
+#spring.redis.host=localhost
+#spring.redis.port=6379
